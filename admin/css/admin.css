@@ -1,0 +1,31 @@
+/*button and field width*/
+.set-width{
+    width: 105px;
+}
+
+/*Timer CSS*/
+.set_background{
+    width: 100%;
+    min-height: 300px;
+
+}
+
+.above-font-color{
+    color: #000;
+}
+
+.timer{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.set-image{
+    background: url(../../img/img.png);
+}
+
+#timer{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
