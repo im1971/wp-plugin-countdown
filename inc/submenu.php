@@ -16,7 +16,7 @@ function get_admin_init_callback(){
         );
 
         update_option('getValue', maybe_serialize($new_update_value));
-        $notification = "Success!";
+//        $notification = "Success!";
     }
 }
 
@@ -37,19 +37,20 @@ function hek_coming_soon(){
     ?>
     <div class="container">
         <div class="row">
-            <?php if(isset($notification) && !empty($notification)){?>
-            <div class="alert alert-success">
-                <strong>Success!</strong> Indicates a successful or positive action.
-            </div>
-        <?php } ?>
+<!--            --><?php //if(isset($notification) && !empty($notification)){?>
+<!--            <div class="alert alert-success">-->
+<!--                <strong>Success!</strong> Indicates a successful or positive action.-->
+<!--            </div>-->
+<!--        --><?php //} ?>
             <h4><?php echo __('Setup Color/ Font and Background Image', 'hek_coming_soon') ?></h4>
             <hr/>
-            <form method="post" action="<?php echo $current_url ?>&action=save-form">
+<!--            <form method="post" action="--><?php //echo $current_url ?><!--&action=save-form">-->
+            <form method="post" action="<?php echo $_SERVER['REQUEST_URI']?>&action=save-form">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label><?php echo __('Set Counter Date', 'hek_coming_soon') ?></label>
                         <p>Set The counter Date</p>
-                        <input type="text" class="custom-date set-width" name="startdate" value="" />
+                        <input type="text" class="custom-date set-width" name="startdate" value="<?php echo maybe_unserialize(get_option("start-date")); ?>" />
                     </div>
 
                     <div class="form-group">
