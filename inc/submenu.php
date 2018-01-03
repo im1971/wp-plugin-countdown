@@ -14,7 +14,7 @@ function get_admin_init_callback(){
             'font-color' => $_POST["fontcolor"],
             'label-color' => $_POST["labelcolor"]
         );
-        
+
         update_option('getValue', maybe_serialize($new_update_value));
         $notification = "Success!";
     }
