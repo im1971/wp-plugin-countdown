@@ -1,6 +1,26 @@
 <?php
-add_action( 'admin_menu', 'hek_coming_soon_menu' );
+//global $notification;
 
+add_action('admin_init', 'get_admin_init_callback');
+
+function get_admin_init_callback(){
+    if(isset($_GET['action']) && $_GET['action'] == 'save-form' && $_POST['action'] && $_POST['action'] == 'submit-coming-soon'){
+
+        $new_update_value = array(
+            'start-date' => $_POST["startdate"],
+            'set-font' => $_POST["setfont"],
+            'set-bg-color' => $_POST["setbgcolor"],
+            'bg-image' => $_POST["bgimage"],
+            'font-color' => $_POST["fontcolor"],
+            'label-color' => $_POST["labelcolor"]
+        );
+        
+        update_option('getValue', maybe_serialize($new_update_value));
+        $notification = "Success!";
+    }
+}
+
+add_action( 'admin_menu', 'hek_coming_soon_menu' );
 function hek_coming_soon_menu() {
     add_options_page(
         'Coming Soon',
@@ -11,12 +31,20 @@ function hek_coming_soon_menu() {
     );
 }
 
-function hek_coming_soon(){?>
+function hek_coming_soon(){
+    global $wp;
+    $current_url = admin_url( "/options-general.php?page=coming-soon" )
+    ?>
     <div class="container">
         <div class="row">
+            <?php if(isset($notification) && !empty($notification)){?>
+            <div class="alert alert-success">
+                <strong>Success!</strong> Indicates a successful or positive action.
+            </div>
+        <?php } ?>
             <h4><?php echo __('Setup Color/ Font and Background Image', 'hek_coming_soon') ?></h4>
             <hr/>
-            <form method="post" action="markup.php">
+            <form method="post" action="<?php echo $current_url ?>&action=save-form">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label><?php echo __('Set Counter Date', 'hek_coming_soon') ?></label>
@@ -55,6 +83,7 @@ function hek_coming_soon(){?>
                         <input type="text"  id="Label_Color" data-default-color="#effeff" name="labelcolor" />
 
                     </div>
+                    <input type="hidden" name="action" value="submit-coming-soon">
                     <input type="submit" class="btn btn-primary" value="Save"/>
                 </div>
             </form>

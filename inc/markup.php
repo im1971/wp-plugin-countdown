@@ -1,29 +1,6 @@
 <?php
 
-    $startdate = $setfont = $setbgcolor = $bgimage = $fontcolor = $labelcolor = '';
-
-    $startdate = $_POST["startdate"];
-    $setfont = $_POST["setfont"];
-    $setbgcolor = $_POST["setbgcolor"];
-    $bgimage = $_POST["bgimage"];
-    $fontcolor = $_POST["fontcolor"];
-    $labelcolor = $_POST["labelcolor"];
-
-
-    update_option('start-date', $startdate);
-    update_option('set-font',$setfont);
-    update_option('set-bg-color',$setbgcolor);
-    update_option('bg-image',$bgimage);
-    update_option('font-color',$fontcolor);
-    update_option('label-color',$labelcolor);
-
-
-    $setDate = get_option('start-date');
-    $setFont = get_option('set-font');
-    $setBgColor = get_option('set-bg-color');
-    $setBgImage = get_option('bg-image');
-    $seFontColor = get_option('font-color');
-    $setLableColor = get_option('label-color');
+$data = maybe_unserialize(get_option("getValue"));
 ?>
 
 
