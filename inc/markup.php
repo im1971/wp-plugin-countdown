@@ -7,10 +7,7 @@ $timer_bg_color = $data['set-bg-color'];
 $timer_font_color = $data['font-color'];
 $label_color = $data['label-color'];
 $bg_image = $data['bg-image'];
-
-
 ?>
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-3">
@@ -31,15 +28,13 @@ $bg_image = $data['bg-image'];
 <!--inline custom css for counter-->
 <?php
 $custom_css = ".font-style{color:{$label_color};}
-               .timer{font-size: " . $font_size . "px;
-               background-color: {$timer_bg_color};
-               color: {$timer_font_color};
-               } 
-";
-
-wp_register_style( 'cod-inline-style', false);
-wp_enqueue_style( 'cod-inline-style' );
-wp_add_inline_style( 'cod-inline-style', $custom_css );
+               .timer{  font-size: " . $font_size . "px;
+                        background-color: {$timer_bg_color};
+                        color: {$timer_font_color};
+                    } ";
+            wp_register_style( 'cod-inline-style', false);
+            wp_enqueue_style( 'cod-inline-style' );
+            wp_add_inline_style( 'cod-inline-style', $custom_css );
 ?>
 
 
