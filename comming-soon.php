@@ -41,7 +41,16 @@ function hek_enqueue_styles(){
     wp_register_style('bootstrap',HEK_PLUGIN_URI .'/css/bootstrap.min.css',true,HEK_PLUGIN_VERSION);
     wp_enqueue_style ('bootstrap');
 
-//register script
+    //css for frontend
+    wp_register_style("hek-front-style", HEK_PLUGIN_URI . "/css/style.css",true,HEK_PLUGIN_VERSION);
+    wp_enqueue_style("hek-front-style");
+
+    //js file for admin
+
+    wp_register_script('front-front-comming',HEK_PLUGIN_URI .'/js/front-comming.js',array('jquery'),HEK_PLUGIN_VERSION,true);
+    wp_enqueue_script ('front-front-comming');
+
+    //register script
     wp_register_script('js-bootstrap',HEK_PLUGIN_URI .'/js/bootstrap.min.js',array('jquery'),HEK_PLUGIN_VERSION,true);
     wp_enqueue_script ('js-bootstrap');
 

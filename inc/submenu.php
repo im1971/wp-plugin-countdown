@@ -50,7 +50,7 @@ function hek_coming_soon(){
                     <div class="form-group">
                         <label><?php echo __('Set Counter Date', 'hek_coming_soon') ?></label>
                         <p>Set The counter Date</p>
-                        <input type="text" class="custom-date set-width" name="startdate" value="<?php echo maybe_unserialize(get_option("start-date")); ?>" />
+                        <input type="text" class="custom-date set-width" name="startdate" value="" />
                     </div>
 
                     <div class="form-group">

@@ -1,0 +1,21 @@
+.front-image-postion{
+    width: 100%;
+}
+
+.center-block{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+}
+
+.font-style{
+    font-size: 25px;
+    padding: 30px;
+}
+
+.timer{
+    display: inline-block;
+    margin-left: 35px;
+    padding: 5px;
+}
